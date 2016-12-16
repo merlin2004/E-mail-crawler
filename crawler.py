@@ -2,7 +2,7 @@ import urllib
 import re
 import sys
 
-depth = 100
+depth = 0
 mails = set()
 sites = []
 searched_sites = []
@@ -12,16 +12,16 @@ except:
     try:
         sites.append(raw_input("Site: "))
     except:
-        print "Site set to http://www.milliondollarhomepage.com/"
-        sites.append("http://www.milliondollarhomepage.com/")
+        print "Site set to https://carbonads.net/"
+        sites.append("https://carbonads.net/")
 try:
     depth = int(sys.argv[2])
 except:
     try:
         depth = int(input("Depth: "))
     except:
-        print "Depth set to 20."
-        depth = 20
+        print "Depth set to 100."
+        depth = 100
 
 
 def find_mails(string):
@@ -53,7 +53,7 @@ def find_sites(string):
             if m.endswith(line):
                 not_allowed = True
         datei.close()
-        if not_allowed is False:
+        if not_allowed is False and m.find("=") == -1 and m.find("?") == -1:
             res.append(m)
     return res
 
