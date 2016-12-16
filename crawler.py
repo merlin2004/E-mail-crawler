@@ -2,7 +2,7 @@ import urllib
 import re
 import sys
 
-depth = 20
+depth = 100
 mails = set()
 sites = []
 searched_sites = []
@@ -12,8 +12,8 @@ except:
     try:
         sites.append(raw_input("Site: "))
     except:
-        print "Site set to https://github.com/mircotroue/"
-        sites.append("https://github.com/mircotroue/")
+        print "Site set to http://www.milliondollarhomepage.com/"
+        sites.append("http://www.milliondollarhomepage.com/")
 try:
     depth = int(sys.argv[2])
 except:
@@ -44,10 +44,17 @@ def find_sites(string):
         m = m.replace(" ", "")
         m = m.replace("href=\"", "")
         m = m.replace("\"", "")
-        if (m[-4] != "." and m[-5] != "." and m.rfind("/") > -1):
-            i = m.rfind("/")
-            m = m[0:i+1]
-        res.append(m)
+        # if (m[-4] != "." and m[-5] != "." and m.rfind("/") > -1):
+        # i = m.rfind("/")
+        # m = m[0:i+1]
+        datei = open("blacklist.txt")
+        not_allowed = False
+        for line in datei:
+            if m.endswith(line):
+                not_allowed = True
+        datei.close()
+        if not_allowed is False:
+            res.append(m)
     return res
 
 print "Searching mails at " + sites[0] + " with " + str(depth) + " child sites"

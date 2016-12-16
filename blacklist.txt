@@ -1,0 +1,9 @@
+.pdf
+.png
+.jpg
+.jpeg
+.gif
+.css
+.js
+.mp3
+.mp4
