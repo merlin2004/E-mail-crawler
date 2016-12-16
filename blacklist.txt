@@ -7,3 +7,8 @@
 .js
 .mp3
 .mp4
+.zip
+.mov
+.cgi
+.asp
+.aspx
