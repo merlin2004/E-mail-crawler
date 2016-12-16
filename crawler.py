@@ -15,7 +15,7 @@ except:
         print "Site set to https://github.com/mircotroue/"
         sites.append("https://github.com/mircotroue/")
 try:
-    depth = sys.argv[2]
+    depth = int(sys.argv[2])
 except:
     try:
         depth = int(input("Depth: "))
