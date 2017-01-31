@@ -12,8 +12,8 @@ except:
     try:
         sites.append(raw_input("Site: "))
     except:
-        print "Site set to https://carbonads.net/"
-        sites.append("https://carbonads.net/")
+        print "Site set to https://www.phoenixcontact.com/"
+        sites.append("https://www.phoenixcontact.com/")
 try:
     depth = int(sys.argv[2])
 except:
@@ -22,6 +22,13 @@ except:
     except:
         print "Depth set to 100."
         depth = 100
+
+
+print ""
+print ('\x1b[1;37;41m' + '*********** E-Mail Crawler ************' + '\x1b[0m')
+print ('\x1b[1;37;41m' + '****** Hacking is not a crime ! *******' + '\x1b[0m')
+print ('\x1b[1;37;41m' + '******      Open your Eyes      *******' + '\x1b[0m')
+print ""
 
 
 def find_mails(string):
@@ -71,8 +78,8 @@ while len(sites) > 0:
     current_links = find_sites(html)
     for i in current_links:
         if (i not in sites) and (i not in searched_sites) and len(searched_sites) < depth:
-            print "Found site: " + i
+            #print "Found site: " + i
             sites.append(i)
             searched_sites.append(i)
 print "Searched on " + str(len(searched_sites)) + " sites"
-print "Found mails: " + str(mails)[3:]
+print ('\x1b[5;30;42m' + 'Found mails: ' + str(mails)[3:]  + '\x1b[0m')
